@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+  <head th:insert="head.html">
+
+  </head>
+  <body>
+      <div class="container-fluid">
+          <div th:insert="navbar.html">
+
+          </div>
+      </div>
+      <div class="container-fluid mt-3" style="min-height: 590px">
+          <div class="row">
+              <div class="col-12">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr style="width: 10%">
+                                <th>ID</th>
+                                <th>NAME</th>
+                                <th>SURNAME</th>
+                                <th>EXAM</th>
+                                <th>MARK</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each=" student : ${studentter}">
+                                <td th:if="${student.exam<50}" style="color: #e70d0c"  th:text="${student.id}"></td>
+                                <td th:if="${student.exam<50}" style="color: #e70d0c" th:text="${student.name}"></td>
+                                <td th:if="${student.exam<50}" style="color: #e70d0c" th:text="${student.surname}"></td>
+                                <td th:if="${student.exam<50}" style="color: #e70d0c" th:text="${student.exam}"></td>
+                                <td th:if="${student.exam<50}" style="color: #e70d0c" th:text="F"></td>
+                                <td th:if="${student.exam>=50 && student.exam<=60}" th:text="D"></td>
+                                <td th:if="${student.exam>=61 && student.exam<=74}"  th:text="C"></td>
+                                <td th:if="${student.exam>=75 && student.exam<=89}"  th:text="B"></td>
+                                <td th:if="${student.exam>=90 && student.exam<=100}" th:text="A"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+              </div>
+          </div>
+      </div>
+      <div class="container-fluid">
+          <div th:insert="footer.html">
+
+          </div>
+      </div>
+  </body>
+</html>
